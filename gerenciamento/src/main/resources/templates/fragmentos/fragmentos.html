@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--Declara um namespace pro thymeleaf, podendo usar funções dele agr-->
+<html lang="pt-br" xmlns:th = "http://www.thymeleaf.org">
+<head> <!--cabeça do arquivo HTML, guarda as definições usadas em todo arquivo-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Cria um link pro bootstrap para poder criar objetos a partir dele-->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Primeiro programa</title>
+
+</head>
+<body>
+  
+    <header th:fragment="cabecalho" style="z-index: 105;">
+        <link rel="stylesheet" href="css/styleIndex.css">
+        <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>   
+        <nav class="emcima navbar navbar-expand-lg">  
+          <a class="navbar-brand" th:href="@{/}">
+              <img src="img/icone2.png" width="50" height="50" alt="">
+          </a>
+      
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> 
+      
+          <div class="collapse navbar-collapse justify-content-end " id="navbarMobile">
+              <a class="minhaCuston nav-item nav-link" href="">Home </a>
+              <a class="minhaCuston nav-item nav-link" href="">Pesquisar aluno </a> 
+              <a class="minhaCuston nav-item nav-link" href="">Cadastrar aluno </a>   
+              <a class="minhaCuston nav-item nav-link" href=""><button style="border-radius: 30px;">Sair</button></a>
+          </div>             
+        </nav>
+    </header>
+
+
+    <footer th:fragment="rodape">
+        <div class="rodape">
+          <span>Todos os direitos reservados - 2023 &copy; Caio Almeida Santos-</span>
+        </div>
+    </footer>
+
+</body>
+
+
+</html>

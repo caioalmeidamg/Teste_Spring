@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--Declara um namespace pro thymeleaf, podendo usar funções dele agr-->
+<html lang="pt-br" xmlns:th = "http://www.thymeleaf.org">
+<head> <!--cabeça do arquivo HTML, guarda as definições usadas em todo arquivo-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Cria um link pro bootstrap para poder criar objetos a partir dele-->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="js/main.js"></script>
+    <title>Inserir Alunos</title>
+</head>
+<body>
+    <div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>   
+    <div class="container" style="margin-top: 50px;">
+
+    <h4>Inserir Aluno</h4>
+        <hr>
+
+        <!-- o form é usado para valores editaveis, ou seja trabalhar com um objeto em HTML-->
+        <form class="insercao" method="post" action="InsertAlunos"  th:object="${aluno}">
+            <!-- Nome do Aluno -->
+            <div class="row">
+                <div class="col-sm-5 form-group offset-md-3">
+                <label style="margin-top: 2%;">Nome Aluno</label>
+                <input class="form-control" placeholder="Ex: Caio Almeida" th:field="*{nome}">
+                </div>
+            </div>
+
+            <!-- Curso do Aluno -->
+            <div class="row">
+                <div class="col-sm-5 form-group offset-md-3">
+                <label>Selecione o curso</label>
+                <select class="form-control">
+                    <!-- cria uma iteração que passa entre os enums, tudo indica que um enum é algum tipo de herança-->
+                    <option th:each="curso : ${T(br.com.gerenciamento.enums.Curso).values()}"
+                    th:value="${curso}" th:text="${curso}"></option>
+                </select>
+                </div>
+            </div>
+
+            <!--Status do aluno-->
+            <div class="row">
+                <div class="col-sm-5 form-group offset-md-3">
+                <label>Selecione o status</label>
+                <select class="form-control">
+                    <option th:each="status : ${T(br.com.gerenciamento.enums.Status).values()}"
+                    th:value="${status}" th:text="${status}"></option>
+                </select>
+                </div>
+            </div>
+            <!-- Matricula do Aluno -->
+            <div class="row">
+                <div class="col-sm-5 form-group offset-md-3">
+                    <label> Gerar matricula </label>
+                    <input class="form-control" id="matricula" th:field="*{matricula}">
+                    <button type="button" onclick="gerarMatricula();" class="btn btn-dark" style="margin-top: 2%;"> 
+                        Gerar
+                    </button>
+                </div>
+                
+            </div>
+            
+
+            <div class="row">
+                <hr class="col-sm-5 offset-md-3 margin-top: 0px;">
+                <button type="submit" class="btn btn-success col-sm-5 offset-md-3" style="margin-top: 0.4%;"> 
+                    Salvar
+                </button>
+            </div>
+        </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+</body>

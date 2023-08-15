@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--Declara um namespace pro thymeleaf, podendo usar funções dele agr-->
+<html lang="pt-br" xmlns:th = "http://www.thymeleaf.org">
+<head> <!--cabeça do arquivo HTML, guarda as definições usadas em todo arquivo-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Cria um link pro bootstrap para poder criar objetos a partir dele-->
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <title>Primeiro programa</title>
+</head>
+
+<!--Corpo do html-->
+<body style="background-image: url('img/fundo.jpg');">  
+
+    <div th:replace="~{fragmentos/fragmentos :: cabecalho}"></div>
+
+    <section class=" neo-section" >
+      <div class="sombra"></div>  
+    <div class="center neo-container">
+      
+        <h1 class="minhaCustonGG">Sistema de gerenciamento de alunos</h1>
+      
+      <div class="botoes ">
+        <div class="wm">
+          <a rolle="button" th:href="@{inserirAluno}" >
+            <h5 style="color:white;" class="btn ">Cadastrar Aluno</h5>
+          </a>
+        </div>
+
+        <div class="wm">
+          <a href="/">
+          <h5 style="color:white;" class="btn ">Encontrar aluno</h5>
+          </a>
+        </div>
+
+      </div>
+      
+      <div class="clear"></div>
+       
+    </div>
+    </section>
+
+    <div th:replace="~{fragmentos/fragmentos :: rodape}"></div>
+<!--
+    <footer>
+      <div class="rodape">
+        <span>Todos os direitos reservados - 2023 &copy; Caio Almeida Santos-</span>
+      </div>
+    </footer>
+-->
+</body>
+</html>

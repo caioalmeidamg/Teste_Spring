@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+nav{ 
+    z-index: 105;
+    background-color: rgb(145, 72, 30);}
+
+
+a{ cursor: pointer; 
+   color: white;}
+
+.btn{
+    width: 200px;
+    border-radius: 6px;
+    border-color: white;
+    color: white;
+}
+
+.btn:hover{
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.minhaCustonGG{
+    font-family: 'Ubuntu';
+    font-size: 30pt;
+    color: rgb(248, 248, 248);
+    text-shadow: 2px 2px 2px rgb(15, 16, 65);
+    text-align: center;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2%;
+    color: white;
+    z-index: 105;
+}
+
+.botoes{
+    padding: 2% 25%;
+}
+
+.minhaCuston{
+    font-family: 'Ubuntu';
+    font-size: 14pt;
+    color: rgb(248, 248, 248);
+    text-shadow: 2px 2px 2px rgb(15, 16, 65);
+    text-decoration: underline;
+}
+
+
+.minhaCuston:hover{
+    color: grey;
+}
+
+.neo-section{
+    min-height: 100%;
+    background-image: url("img/fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 30px;
+    position: static;
+}
+
+.center{
+    text-align: center;
+}
+
+.neo-section > .neo-container{
+    position: relative;
+    z-index: 105;
+}
+
+.sombra{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+}
+
+.neo-container{
+    margin-top: 200px;
+    max-width: 1280px;
+    padding: 8% 10%;
+    margin: 0 auto;
+}
+
+.clear{
+    clear: both;
+}
+
+.wm{
+    width: 50%;
+    float: left;
+}
+
+.rodape{
+    color: white;
+    background-color: grey;
+    text-align: center;
+    padding: 15px;
+}
+
+
+
+@media (max-width: 1088px){
+    .wm{width: 100%;}
+
+    
+}
