@@ -10,7 +10,7 @@ import br.com.gerenciamento.dao.AlunoDao;
 import br.com.gerenciamento.model.*;
 /*
  * Como observado path variables em spring são dadas dentro do controller
- * 
+ * teste
  */
 
 
