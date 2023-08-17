@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.5</version>
+		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com</groupId>
@@ -48,18 +48,16 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-		<dependency> <!--Webjars basicamente é um framework que nos permite utilizar 
-		bibliotecas Jquery e bootstrap sem precisar baixalos-->
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-			<version>0.37</version>
-		</dependency>
-
-		<dependency> <!-- declaração do jquery a partir do webjars-->
+		<dependency>
+			<!-- declaração do jquery a partir do webjars-->
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency><!--Declaração do bootstrap a partir do webjars-->
