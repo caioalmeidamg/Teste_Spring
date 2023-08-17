@@ -1,5 +1,6 @@
 package br.com.gerenciamento.controllers;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,30 +19,29 @@ import br.com.gerenciamento.model.*;
  * Como observado path variables em spring são dadas dentro do controller
  * teste
  */
-
+import jakarta.websocket.server.PathParam;
 
  //o RestController é fundamental pra se fazer uma apirest 
+ //Retorna necessariamente um json
 @RestController
-@RequestMapping("/Aluno")
 public class AlunoController {
     
     @Autowired
     private AlunoDao alunoRepositorio;
+    
+    //Quando o atributo é declarado como /{id} então é um PahtVariable
 
-    //Retorna necessariamente um json
-    @GetMapping("/{id}")
-    public Optional setAlunos(@PathVariable Integer id) {
+    @GetMapping("/inserirAluno/{id}")
+    public Optional<Aluno> setAlunos(@PathVariable int id) {
       Optional <Aluno> retorno =  alunoRepositorio.findById(id);
-
-        return retorno;
+      return retorno;
     }
-
+    
     //Esse post mapping retorna uma view
     @PostMapping("/inserirAluno")
-    public ModelAndView inserirAluno(Aluno aluno){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("redirect:/");
+    public Aluno inserirAluno(Aluno aluno){        
         alunoRepositorio.save(aluno);  
-        return mv; 
+        return aluno; 
     }
+    
 }

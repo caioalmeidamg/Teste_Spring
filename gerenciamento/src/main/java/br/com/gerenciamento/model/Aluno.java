@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import br.com.gerenciamento.enums.*;
 
 @Entity
 public class Aluno{
@@ -19,7 +18,7 @@ public class Aluno{
     private String nome;
 
     @Column(name = "curso")
-    private Curso curso;
+    private String curso;
 
     @Column(name = "matricula")
     private String matricula;
@@ -28,18 +27,18 @@ public class Aluno{
     private String turno;
 
     @Column(name = "status")
-    private Status status;
+    private String status;
 
     //Métodos ----------------------------------------
     public int getId(){
         return id;
     }
 
-    public Curso getCurso() {
+    public String getCurso() {
         return curso;
     }
     
-    public void setCurso(Curso curso){
+    public void setCurso(String curso){
         this.curso = curso;
     }
 
@@ -67,11 +66,11 @@ public class Aluno{
         this.turno = turno;
     } 
 
-    public Status getStatus(){
+    public String getStatus(){
         return status;
     }
 
-    public void setStatus(Status status){
+    public void setStatus(String status){
         this.status = status;
     }
     
