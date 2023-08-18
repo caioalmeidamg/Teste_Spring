@@ -1,10 +1,14 @@
 package br.com.gerenciamento.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Aluno{
@@ -14,20 +18,33 @@ public class Aluno{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; 
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "curso")
+    @Column(name = "curso", nullable = false)
     private String curso;
 
-    @Column(name = "matricula")
+    @Column(name = "matricula", nullable = false)
     private String matricula;
 
-    @Column(name = "turno"  )
+    @Column(name = "turno", nullable = false)
     private String turno;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "materia_id")
+    private Materia materia;
+
+
+    public Materia getMaterias() {
+        return materia;
+    }
+
+    public void setMaterias(Materia materias) {
+        this.materia = materias;
+    }
 
     //Métodos ----------------------------------------
     public int getId(){
@@ -54,7 +71,7 @@ public class Aluno{
         return matricula;
     }
 
-    public void seztMatricula(String matricula){
+    public void setMatricula(String matricula){
         this.matricula = matricula;
     }
     
@@ -62,9 +79,9 @@ public class Aluno{
         return turno;
     }
 
-    public void SetTurno(String turno){
+    public void setTurno(String turno){
         this.turno = turno;
-    } 
+    }
 
     public String getStatus(){
         return status;

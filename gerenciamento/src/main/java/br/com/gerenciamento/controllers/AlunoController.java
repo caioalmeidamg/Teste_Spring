@@ -37,11 +37,17 @@ public class AlunoController {
       return retorno;
     }
     
-    //Esse post mapping retorna uma view
+    @GetMapping("/inserirAluno/teste")
+    public String teste(@PathParam("id") int id, @PathParam("nome") String nome) {
+      String f = nome + id;
+      return f;
+    } 
+
+    
     @PostMapping("/inserirAluno")
     public Aluno inserirAluno(Aluno aluno){        
         alunoRepositorio.save(aluno);  
-        return aluno; 
+        return aluno;
     }
     
 }
