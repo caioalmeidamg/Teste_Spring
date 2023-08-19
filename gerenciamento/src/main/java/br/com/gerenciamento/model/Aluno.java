@@ -1,14 +1,13 @@
 package br.com.gerenciamento.model;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Aluno{
@@ -33,16 +32,15 @@ public class Aluno{
     @Column(name = "status", nullable = false)
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "materia_id")
-    private Materia materia;
+    @ManyToMany
+    private Set<Materia> materia;
 
 
-    public Materia getMaterias() {
+    public Set<Materia> getMaterias() {
         return materia;
     }
 
-    public void setMaterias(Materia materias) {
+    public void setMaterias(Set<Materia> materias) {
         this.materia = materias;
     }
 

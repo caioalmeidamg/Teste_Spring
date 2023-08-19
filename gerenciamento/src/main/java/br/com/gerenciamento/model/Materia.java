@@ -1,14 +1,13 @@
 package br.com.gerenciamento.model;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
+import jakarta.persistence.ManyToMany;
 @Entity
 public class Materia {
      //Artibutos -------------------------------------
@@ -19,10 +18,10 @@ public class Materia {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @OneToMany(mappedBy = "materia")
-    private List<Aluno> alunos;
+    @ManyToMany()
+    private Set<Aluno> alunos;
 
-    public Materia(int id, String nome, List<Aluno> alunos) {
+    public Materia(int id, String nome, Set<Aluno> alunos) {
         this.id = id;
         this.nome = nome;
         this.alunos = alunos;
@@ -44,11 +43,11 @@ public class Materia {
         this.nome = nome;
     }
 
-    public List<Aluno> getAlunos() {
+    public Set<Aluno> getAlunos() {
         return alunos;
     }
 
-    public void setAlunos(List<Aluno> alunos) {
+    public void setAlunos(Set<Aluno> alunos) {
         this.alunos = alunos;
     }
 
