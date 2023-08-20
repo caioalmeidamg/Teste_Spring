@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -32,8 +33,8 @@ public class AlunoController {
 
     //Esse aqui é quando vc vai fazer a inserção de um aluno especifico e deveria utilizar requestparam
     @GetMapping("/inserirAluno/{id}")
-    public Optional<Aluno> setAlunos(@PathVariable int id) {
-      Optional <Aluno> retorno =  alunoRepositorio.findById(id);
+    public Optional <Aluno> setAlunos(@PathVariable int id) {
+      Optional <Aluno> retorno =  alunoRepositorio.findById(id);      
       return retorno;
     }
     
@@ -43,11 +44,11 @@ public class AlunoController {
       return f;
     } 
 
-    
+    /* 
     @PostMapping("/inserirAluno")
     public Aluno inserirAluno(Aluno aluno){        
         alunoRepositorio.save(aluno);  
         return aluno;
     }
-    
+    */
 }
