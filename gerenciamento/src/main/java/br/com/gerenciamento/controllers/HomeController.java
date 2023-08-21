@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * |- Controller responsavel pela página inicial, ou seja o index
  */
 
+ //Caso esteja trabalhando em uma apirest essa anotation deve ser restController
 @Controller//declara que essa classe é Controller
 public class HomeController {
 
