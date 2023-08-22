@@ -2,7 +2,9 @@ package br.com.gerenciamento.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;
+
 //Resposta basica para exceções
+//Essa é a classe retornada ao capturarmos uma excceção
 public class ExceptionResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -39,7 +41,7 @@ public class ExceptionResponse implements Serializable {
     public String getDetails() {
         return details;
     }
-    
+
     public void setDetails(String details) {
         this.details = details;
     } 

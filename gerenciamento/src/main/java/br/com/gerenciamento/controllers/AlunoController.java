@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.WebRequest;
 
 import java.util.Optional;
 
@@ -33,12 +35,12 @@ public class AlunoController {
     //Esse aqui é quando vc vai fazer a inserção de um aluno especifico e deveria utilizar requestparam
 
     @GetMapping("/inserirAluno") //é possivel adicionar mas de um requestParam, basta adicionar virgula apos a variavel
-    public Optional<Aluno> setAlunos(@RequestParam (value = "id", defaultValue = "90") Integer id) {
+    public Optional<Aluno> setAlunos(@RequestParam (value = "id", defaultValue = "90") Integer id) throws Exception {
      Optional<Aluno> retorno =  alunoRepositorio.findById(id);//JpaRepository ta sempre retornando um Optional
         
         //tratamento de exceções 
         if(id == 90){
-          //
+          throw new Exception();
         }
 
      
@@ -48,15 +50,16 @@ public class AlunoController {
 
     //pathParam pe
     @GetMapping("/inserirAluno/teste")
-    public String teste(@PathParam("id") int id, @PathParam("nome") String nome) {
+    public String teste(@PathParam("id") int id, @PathParam("nome") String nome) {     
       String f = nome + id;
       return f;
     }
 
     @PostMapping("/inserirAluno")
-    public Aluno inserirAluno(Aluno aluno){        
-        alunoRepositorio.save(aluno);  
-        return aluno;
+    public Aluno inserirAluno(Aluno request){        
+      
+      //alunoRepositorio.save(aluno);  
+        return request;
     }
 
 }
