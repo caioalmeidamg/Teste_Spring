@@ -1,6 +1,5 @@
 package br.com.gerenciamento.controllers;
 
-import br.com.gerenciamento.model.Aluno;
 import br.com.gerenciamento.model.Materia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
